@@ -1,20 +1,11 @@
-// String Manipulation
+// Using let and const with Loops
 
-function reverse_sentence(Sentence){
-str = "";
+const cars = [4,1,9,5,2];
 
-for(let i = Sentence.length-1; i>=0;i--){
-   str += Sentence[i];
+let sum = 0;
+for (let i = 0; i<cars.length;i++)
+{
+   sum += cars[i];
+
 }
-return str;
-}
-
-let Sentence = "Hello world";
-let reversed = reverse_sentence(Sentence); 
-let words = reversed.split(" ");
-let remainreverse = "";
-for(let i = words.length-1; i>=0;i--){
-   remainreverse += words[i]+ " ";
-}
-
-console.log(remainreverse.trim());
+console.log(sum);

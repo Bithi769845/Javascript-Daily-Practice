@@ -1,11 +1,28 @@
-// Using let and const with Loops
+function isPalindrome(num) {
+   // Initialize reverse based on the type of num
+   let reverse = typeof num === 'bigint' ? BigInt(0) : 0;
+   let temp = num;
 
-const cars = [4,1,9,5,2];
+   while (temp > 0) {
+      // If num is BigInt, we use BigInt(10); otherwise, just 10 for Number
+      const base = typeof num === 'bigint' ? BigInt(10) : 10;
+      const rem = temp % base;
+      reverse = reverse * base + rem;
+      temp = temp / base;
 
-let sum = 0;
-for (let i = 0; i<cars.length;i++)
-{
-   sum += cars[i];
+      // For regular numbers, use Math.floor to handle integer division
+      if (typeof num !== 'bigint') temp = Math.floor(temp);
+   }
 
+   if (num === reverse) {
+      console.log("It is a palindrome number");
+   } else {
+      console.log("It is not a palindrome");
+   }
 }
-console.log(sum);
+
+// Testing the function with both Numbers and BigInt
+isPalindrome(121);               
+isPalindrome(123);              
+isPalindrome(BigInt(12321));      
+isPalindrome(BigInt(123456));     

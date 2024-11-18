@@ -1,18 +1,56 @@
-//  Array Iteration and Search
+//  Advanced Object Manipulation and Methods
 
-const employees = [
-   { name: "Rubab", position: "Developer", salary: 15000 },
-   { name: "Hafsa", position: "Data Analyst", salary: 20000 },
-   { name: "Ali", position: "Project Manager", salary: 25000 },
-   { name: "Sara", position: "UI/UX Designer", salary: 18000 },
-   { name: "Khan", position: "DevOps Engineer", salary: 22000 },
-   { name: "Maya", position: "HR Manager", salary: 17000 },
-   { name: "Zahid", position: "QA Engineer", salary: 16000 },
-   { name: "Tariq", position: "Data Scientist", salary: 30000 },
-   { name: "Nida", position: "Marketing Specialist", salary: 19000 },
-   { name: "Fahad", position: "Product Owner", salary: 24000 }
- ];
- 
- const result = employees.filter(employee => employee.salary < 20000)
- .map(employee=>({name:employee.name,position:employee.position}));
- console.log(result);
+const calculator = {
+  result: 0,
+addition: function(a){
+ this.result+=a;
+ return this.result;
+},
+subtraction: function(a)
+{
+ this.result-=a;
+ return this.result; 
+},
+multiplication: function(a)
+{
+  this.result*=a;
+  return this.result;
+
+},
+division: function(a)
+{
+  if (a === 0) {
+    return "Error: Division by zero is not allowed.";
+}
+if (this.result === 0) {
+  this.result = a; 
+} else {
+  this.result /= a;
+}
+return this.result;
+},
+reset: function()
+{
+  this.result = 0;
+  return this.result;
+}
+};
+
+console.log(
+  calculator.division(0)
+)
+console.log(
+  calculator.addition(50)
+)
+console.log(
+  calculator.subtraction(15)
+)
+
+console.log(
+  calculator.multiplication(3)
+)
+
+console.log(
+  calculator.division(5)
+)
+
